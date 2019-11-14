@@ -1,0 +1,8 @@
+input TimeFrameInput {
+  start: Timestamp!
+  end: Timestamp!
+}
+
+input RecognizedEntitiesInput {
+  ids: [Id]!
+}

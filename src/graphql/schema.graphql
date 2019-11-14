@@ -1,0 +1,9 @@
+type Query {
+  testConnection: String!
+  
+  getPublicFigures(
+    timeFrame: TimeFrameInput!
+    entities: RecognizedEntitiesInput!
+  ): [PublicFigure!]!
+
+}

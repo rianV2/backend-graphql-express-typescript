@@ -1,0 +1,48 @@
+{
+  "name": "backend-graphql-express-typescript",
+  "version": "1.0.0",
+  "description": "Backend server GraphQL",
+  "main": "src/server.js",
+  "scripts": {
+    "start:dev": "nodemon src/server.ts"
+  },
+  "keywords": [
+    "nodejs",
+    "typescript",
+    "graphql",
+    "apollo",
+    "express"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://remn_v@bitbucket.org/muhammadiyahdashboard/muhammadiyah-dashboard-backend.git"
+  },
+  "author": "Rian Priyanto",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/compression": "0.0.36",
+    "@types/express": "4.16.1",
+    "@types/graphql": "14.0.7",
+    "@types/graphql-depth-limit": "1.1.0",
+    "@types/node": "11.9.4",
+    "graphql-depth-limit": "1.1.0",
+    "graphql-import": "0.7.1",
+    "graphql-import-node": "0.0.1",
+    "nodemon": "1.18.10",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "apollo-server-express": "2.4.2",
+    "compression": "1.7.3",
+    "cors": "2.8.5",
+    "express": "4.16.4",
+    "g": "^2.0.1",
+    "graphql": "14.1.1",
+    "http": "0.0.0",
+    "merge-graphql-schemas": "^1.7.0",
+    "mysql2": "^2.0.0",
+    "ncp": "2.0.0",
+    "sequelize": "^5.21.2"
+  }
+}
