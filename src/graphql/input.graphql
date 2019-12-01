@@ -6,3 +6,18 @@ input TimeFrameInput {
 input RecognizedEntitiesInput {
   ids: [Id]!
 }
+
+input PublicFigureInput {
+  # id: Id!
+  id: Id
+  name: String
+  displayName: String
+  displayPicture: String
+}
+
+# input PublicFigureInput {
+#   id: Id!
+#   name: String
+#   displayName: String
+#   displayPicture: String
+# }

@@ -15,3 +15,8 @@ type PublicFigure implements RecognizedEntity {
   displayName: String!
   displayPicture: String!
 }
+
+type CrudStatus {
+  # entities: PublicFigure!,
+  status: String!
+}
