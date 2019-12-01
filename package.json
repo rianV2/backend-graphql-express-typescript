@@ -40,6 +40,7 @@
     "g": "^2.0.1",
     "graphql": "14.1.1",
     "http": "0.0.0",
+    "jsonwebtoken": "^8.5.1",
     "merge-graphql-schemas": "^1.7.0",
     "mysql2": "^2.0.0",
     "ncp": "2.0.0",

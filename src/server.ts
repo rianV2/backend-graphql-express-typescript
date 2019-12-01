@@ -5,9 +5,16 @@ import { createServer } from 'http';
 import compression from 'compression';
 import cors from 'cors';
 import schema from './schema';
+// const jsonwebtoken = require('jsonwebtoken')
+const myConfig = require('./config/config.json')
+
 const PORT = 3000;
 const HOST = '0.0.0.0';
 const app = express();
+// const auth = jwt({
+//   secret: myConfig["development"]["jwt_secret"],
+//   credentialsRequired: false
+// })
 const server = new ApolloServer({
   schema,
   validationRules: [depthLimit(7)],

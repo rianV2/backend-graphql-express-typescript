@@ -8,6 +8,7 @@
     "dialect": "mysql",
     "logging": true,
     "force": true,
-    "timezone": "+00:00"
+    "timezone": "+00:00",
+    "jwt_secret": "asdf"
   }
 }

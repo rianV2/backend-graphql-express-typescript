@@ -1,13 +1,13 @@
 import { Sequelize } from 'sequelize'
 
-const config = require('../../config/config.json')
+const myConfig = require('../../config/config.json')
 
-const dbConfig = config["development"]
+const config = myConfig["development"]
 const sequelize = new Sequelize(
-  dbConfig['database'],
-  dbConfig['username'],
-  dbConfig['password'],
-  dbConfig
+  config['database'],
+  config['username'],
+  config['password'],
+  config
 )
 
 export default sequelize
