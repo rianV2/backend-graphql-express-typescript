@@ -1,0 +1,38 @@
+{
+  "development": {
+    "db": {
+      "username": "root",
+      "password": "sAw3d@Qq",
+      "database": "graphql-be",
+      "host": "127.0.0.1",
+      "port": 3306,
+      "dialect": "mysql",
+      "logging": true,
+      "force": true,
+      "timezone": "+00:00"
+    },
+    "app": {
+      "jwt-key": "asdf",
+      "port": 3000,
+      "host": "0.0.0.0"
+    }
+  },
+  "production": {
+    "db": {
+      "username": "root",
+      "password": "sAw3d@Qq",
+      "database": "graphql-be",
+      "host": "127.0.0.1",
+      "port": 3306,
+      "dialect": "mysql",
+      "logging": false,
+      "force": true,
+      "timezone": "+00:00"
+    },
+    "app": {
+      "jwt-key": "asdf",
+      "port": 3000,
+      "host": "0.0.0.0"
+    }
+  }
+}

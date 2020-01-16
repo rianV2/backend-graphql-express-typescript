@@ -1,0 +1,50 @@
+type Query {
+  testConnection: String!
+  
+  getPublicFigures(
+    timeFrame: TimeFrameInput!
+    entities: RecognizedEntitiesInput!
+  ): [PublicFigure!]!
+}
+
+type Mutation {  
+  putPublicFigures(
+    data: PublicFigureInput!
+  ): CrudStatus!
+
+  postPublicFigures(
+    data: PublicFigureInput!
+  ): CrudStatus!
+}
+
+# FIXME mungkin id harusnya bertipe Id (scalar types.graphql)
+type Mutation {
+  getAuth(
+    username: String!
+    password: String!
+  ): DataLogin,
+
+  createAccount(
+    username: String!
+    password: String!
+    role: String!
+    figures: [Int!]
+    organizations: [Int!]
+    socialCommunities: [Int!]
+  ): DataUser!
+
+  updateAccount(
+    id: Int!
+    username: String
+    password: String
+    role: String
+    figures: [Int]
+    organizations: [Int]
+    socialCommunities: [Int]
+  ): DataUser!
+
+  deleteAccount( 
+    id: Int! 
+  ): DataUser!
+}
+

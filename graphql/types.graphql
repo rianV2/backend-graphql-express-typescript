@@ -1,0 +1,46 @@
+scalar Timestamp
+
+scalar Id
+
+interface RecognizedEntity {
+  id: Id!
+  name: String!
+  displayName: String!
+  displayPicture: String!
+}
+
+type PublicFigure implements RecognizedEntity {
+  id: Id!
+  name: String!
+  displayName: String!
+  displayPicture: String!
+}
+
+type DataUser {
+  id: Int
+  username: String
+  role: String
+  figures: [Int!]
+  organizations: [Int!]
+  socialCommunities: [Int!]
+  createdAt: Timestamp
+}
+
+type Token {
+  token: String!
+  expire: Timestamp!
+}
+
+type DataLogin {
+  id: Int
+  username: String
+  role: String
+  figures: [Int!]
+  organizations: [Int!]
+  socialCommunities: [Int!]
+  auth: Token
+}
+
+type CrudStatus {
+  status: String!
+}

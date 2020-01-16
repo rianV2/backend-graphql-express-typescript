@@ -1,13 +1,14 @@
 import { Sequelize } from 'sequelize'
+import "../../lib/env"
 
-const myConfig = require('../../config/config.json')
+const config = require('../../../config/config.json')
+const dbConfig = config[`${process.env.NODE_ENV}`]["db"]
 
-const config = myConfig["development"]
 const sequelize = new Sequelize(
-  config['database'],
-  config['username'],
-  config['password'],
-  config
+  dbConfig['database'],
+  dbConfig['username'],
+  dbConfig['password'],
+  dbConfig
 )
 
 export default sequelize

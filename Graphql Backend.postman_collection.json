@@ -1,0 +1,287 @@
+{
+	"info": {
+		"_postman_id": "bd030854-81f7-45fc-8a8b-6b5297b8d57f",
+		"name": "Graphql Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Auth",
+			"item": [
+				{
+					"name": "testConnection",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\n    testConnection\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAuth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b78a665a-8202-4519-b4a7-b1c0167520de",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"access_token\", jsonData.data.getAuth.auth.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation getAuth($username: String!, $password: String!) {\r\n    getAuth(username : $username, password: $password) {\r\n        id \r\n        username \r\n        role \r\n        auth {\r\n            expire\r\n            token\r\n        }\r\n    }\r\n}",
+								"variables": "{\r\n  \"username\": \"rian\",\r\n  \"password\": \"q\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createAccount",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation mutationCreateAccount(\r\n    $username: String!, \r\n    $password: String!, \r\n    $role: String!\r\n    ) {\r\n        createAccount( \r\n            username : $username, \r\n            password: $password, \r\n            role: $role\r\n            ) {\r\n                id \r\n                username \r\n                role \r\n                createdAt \r\n            } \r\n    } ",
+								"variables": "{\r\n\t\"username\" : \"rian\",\r\n\t\"password\" : \"q\",\r\n\t\"role\" : \"Pimpinan\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAccount",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation mutationUpdateAccount(\r\n    $id : Int!\r\n    $username: String, \r\n    $password: String, \r\n    $role: String\r\n    ) {\r\n        updateAccount( \r\n            id : $id, \r\n            username : $username, \r\n            password: $password, \r\n            role: $role\r\n            ) { \r\n                id \r\n                username \r\n                role\r\n            } \r\n} ",
+								"variables": "{\r\n\t\"id\" : 1,\r\n\t\"username\" : \"rian\",\r\n\t\"password\" : \"q\",\r\n\t\"role\" : \"Pimp1inan\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAccount",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation mutationDeleteAccount( $id: Int! ) { \r\n    deleteAccount( id : $id ) {\r\n        id \r\n        username \r\n        role \r\n    }\r\n}",
+								"variables": "{\r\n  \"id\" : 2\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "testConnection",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n    testConnection\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPublicFigures",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query getPublicFigures($times: TimeFrameInput!, $ent: RecognizedEntitiesInput!) {\r\n  getPublicFigures(timeFrame: $times, entities: $ent) {\r\n    id\r\n    # name\r\n    displayName\r\n    displayPicture\r\n  }\r\n}",
+						"variables": "{\r\n  \"times\": {\r\n  \t\"start\": \"2019-10-20\",\r\n  \t\"end\": \"2019-12-22\"\r\n  },\r\n  \"ent\": {\r\n  \t\"ids\": [1, 2]\r\n  }\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putPublicFigures",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation putPublicFigures($data: PublicFigureInput!) {\r\n  putPublicFigures(data: $data) {\r\n    status\r\n  }\r\n}",
+						"variables": "{\r\n  \"data\": {\r\n  \t\"id\": \"1\",\r\n  \t\"name\": \"riaan\",\r\n  \t\"displayName\": \"Riasn\",\r\n  \t\"displayPicture\": \"#\"\r\n  }\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postPublicFigures",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation postPublicFigures($data: PublicFigureInput!) {\r\n  postPublicFigures(data: $data) {\r\n    status\r\n  }\r\n}",
+						"variables": "{\r\n  \"data\": {\r\n  \t\"name\": \"rian\",\r\n  \t\"displayName\": \"Rian\",\r\n  \t\"displayPicture\": \"#\"\r\n  }\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
